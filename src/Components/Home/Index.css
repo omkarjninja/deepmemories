@@ -1,0 +1,347 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  background: #fff;
+}
+
+/* ---------------- Navbar ---------------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 20px;
+  color: #222;
+}
+
+.navbar-logo img {
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* Hamburger */
+.hamburger {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #222;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 260px;
+  height: 100%;
+  background: #111;
+  color: #fff;
+  padding: 40px 20px;
+  transition: 0.4s ease;
+  z-index: 1100;
+}
+.sidebar.active {
+  right: 0;
+}
+.sidebar .close-btn {
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+.sidebar ul {
+  list-style: none;
+  margin-top: 60px;
+}
+.sidebar ul li {
+  margin: 20px 0;
+}
+.sidebar ul li a {
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.sidebar ul li a:hover {
+  color: #f9b234;
+}
+.sidebar-top a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+  color: #eee;
+  font-size: 15px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.sidebar-top a:hover {
+  color: #f9b234;
+}
+
+/* ---------------- Hero Section ---------------- */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-slideshow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 700px;
+  animation: slideUp 1.5s ease;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.hero-content p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* Blue text strip */
+.blue-text-section {
+  background: linear-gradient(90deg, #004aad, #007bff);
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* ---------------- About Section ---------------- */
+.about-section {
+  padding: 80px 10%;
+  text-align: center;
+}
+.about-section h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.about-section .underline {
+  width: 80px;
+  height: 4px;
+  background: #f9b234;
+  margin: 0 auto 20px;
+  border-radius: 2px;
+}
+.about-section p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* ---------------- Events Section ---------------- */
+.events-section {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  padding: 80px 10%;
+  flex-wrap: wrap;
+}
+.event-card {
+  flex: 1 1 300px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.event-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+.event-card h3 {
+  font-size: 22px;
+  margin: 15px;
+}
+.event-card p {
+  font-size: 15px;
+  color: #555;
+  padding: 0 15px 20px;
+}
+.event-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* ---------------- Portfolio Section ---------------- */
+#portfolio {
+  padding: 80px 10%;
+}
+
+/* ---------------- Footer ---------------- */
+.footer {
+  background: #111;
+  color: #ccc;
+  padding: 60px 10% 20px;
+}
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+.footer-column {
+  flex: 1 1 250px;
+}
+.footer-column h3 {
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 15px;
+}
+.footer-column p {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+.footer-socials {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+.footer-socials a {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f9b234;
+  font-size: 18px;
+  transition: 0.3s;
+}
+.footer-socials a:hover {
+  background: #f9b234;
+  color: #111;
+}
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+  margin-top: 40px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* ---------------- Animations ---------------- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 992px) {
+  .hero-content h1 { font-size: 36px; }
+  .hero-content p { font-size: 16px; }
+  .events-section { flex-direction: column; }
+}
+@media (max-width: 600px) {
+  .navbar { padding: 10px 20px; }
+  .hero-content h1 { font-size: 28px; }
+  .blue-text-section { font-size: 16px; padding: 15px; }
+  .about-section { padding: 50px 20px; }
+  .events-section { padding: 50px 20px; }
+  .footer { padding: 40px 20px; }
+}

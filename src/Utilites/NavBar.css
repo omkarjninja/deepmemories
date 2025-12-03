@@ -1,0 +1,266 @@
+
+----
+/* ================= NAVBAR BASE ================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  /* ------------------------ */
+  /* 🔥 FIX: Give fixed height */
+  height: 80px;
+  padding: 0 60px; /* Only side padding */
+  /* ------------------------ */
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  color: #000;
+  z-index: 1000;
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+/* When scrolling */
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 1);
+
+  /* 🔥 FIX: Keep height constant on scroll */
+  height: 70px; /* Slight shrink effect */
+  padding: 0 40px;
+
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+/* ================= LOGO ================= */
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-logo img {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+}
+
+.navbar-logo span {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+  text-decoration: none;
+}
+
+.navbar.scrolled .navbar-logo span {
+  font-size: 18px;
+}
+
+/* ================= HAMBURGER ================= */
+
+.hamburger {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 1200;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: #000;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 260px;
+  height: 100%;
+  background: #000000;
+  color: #ffffff;
+  padding: 50px 20px;
+  transition: right 0.4s ease;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+}
+
+.sidebar.active {
+  right: 0;
+}
+
+.close-btn {
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+
+/* ================= SIDEBAR CONTENT ================= */
+
+.sidebar-top {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.sidebar-top a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+  color: #ffffff;
+  font-size: 15px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.sidebar-top a:hover {
+  color: #f9b234;
+}
+
+.sidebar ul {
+  list-style: none;
+  margin-top: 30px;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul li a {
+  color: #ffffff;
+  font-size: 18px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+  color: #f9b234;
+}
+
+/* ================= RESPONSIVENESS ================= */
+
+/* 📱 Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    height: 70px;
+    padding: 0 25px;
+  }
+
+  .navbar-logo span {
+    font-size: 18px;
+  }
+
+  .hamburger span {
+    width: 25px;
+  }
+}
+
+/* 📱 Very Small Devices */
+@media (max-width: 480px) {
+  .navbar {
+    height: 65px;
+    padding: 0 20px;
+  }
+
+  .navbar-logo img {
+    height: 40px;
+    width: 40px;
+  }
+
+  .navbar-logo span {
+    font-size: 16px;
+  }
+
+  .sidebar {
+    width: 260px;
+    padding: 40px 15px;
+  }
+}
+
+/* 💻 Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar {
+    height: 75px;
+    padding: 0 40px;
+  }
+
+  .sidebar {
+    width: 280px;
+  }
+}
+
+/* 🖥️ Desktop Large Screens (Full HD & 2K) */
+@media (min-width: 1440px) {
+  .navbar {
+    height: 90px;
+    padding: 0 100px;
+  }
+
+  .navbar-logo span {
+    font-size: 22px;
+  }
+}
+
+/* 🖥️ Ultra-Wide (4K screens, 2560px+) */
+@media (min-width: 2560px) {
+  .navbar {
+    height: 110px;
+    padding: 0 300px;
+  }
+
+  .navbar-logo span {
+    font-size: 26px;
+  }
+
+  .hamburger span {
+    width: 35px;
+    height: 4px;
+  }
+
+  .sidebar {
+    width: 400px;
+  }
+}
