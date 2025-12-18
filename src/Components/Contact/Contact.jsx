@@ -41,9 +41,9 @@ const Contact = () => {
           <div className="contact-info">
             <h3>📍 Address</h3>
             <p>
-              Jakkasandra Extension, <br />
-              Opp. Loco Bear Koramangala, <br />
-              Bengaluru - 560034
+              JAdarsh colony, <br />
+              Degree collage road Near BSNL exchange Khatima U.S.Nagar, <br />
+              262308
             </p>
           </div>
 
@@ -51,9 +51,8 @@ const Contact = () => {
             <h3>📞 Contact</h3>
             <p>
               +91 9019797341 <br />
-              +91 8431381441 <br />
-              <a href="mailto:Seraphicevents08@gmail.com">
-                Seraphicevents08@gmail.com
+              <a href="mailto:memoriesphotographyktm@gmail.com">
+                memoriesphotographyktm@gmail.com
               </a>
             </p>
           </div>
@@ -111,3 +110,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
