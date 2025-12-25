@@ -39,10 +39,9 @@ const ContactUs = () => {
                         <h3>📍 Address</h3>
                         <p>
                             Memories photography 
-                            Adarsh colony, <br />
-                            Degree collage road
-                            Near BSNL exchange 
-                            Khatima., <br />
+                            JAdarsh colony, <br />
+                            Degree collage road 
+                            Near BSNL exchange Khatima <br />
                            U.S.Nagar 262308
                         </p>
                     </div>
@@ -52,10 +51,7 @@ const ContactUs = () => {
                         <p>
                             +91 9019797341<br />
                             <b />
-                            +91 9411583866<br />
-                            <a href="mailto:memoriesphotographyktm@gmail.com">
-                                memoriesphotographyktm@gmail.com
-                            </a>
+                            <a href="mailto:memoriesphotographyktm@gmail.com"> memoriesphotographyktm@gmail.com </a>
                         </p>
                     </div>
                 </div>
@@ -100,3 +96,4 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
+
